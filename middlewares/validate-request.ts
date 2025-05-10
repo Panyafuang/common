@@ -13,9 +13,6 @@ export const validateRequest = (
     next: NextFunction
 ) => {
     const errors = validationResult(req);
-
-    console.log('errors ->  ',errors)
-
     if (!errors.isEmpty()) {
         /** ส่งไปที่ middlewares -> error-handler.ts -> errorHandler() */
         throw new RequestValidationError(errors.array());
