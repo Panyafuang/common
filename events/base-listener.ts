@@ -3,15 +3,15 @@ import { Subjects } from "./subjects";
 
 
 interface IEvent {
-    subject: Subjects;
-    data: any;
+  subject: Subjects;
+  data: any;
 }
 
 export abstract class Listener<T extends IEvent> {
   abstract subject: T['subject'];
   abstract queueGroupName: string;
   abstract onMessage(data: T['data'], msg: Message): void;
-  private client: Stan;
+  protected client: Stan;
   protected ackWait = 5 * 1000;
 
   constructor(client: Stan) {
