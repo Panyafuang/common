@@ -9,7 +9,7 @@ export const requireAdmin = (req: Request, res: Response, next: NextFunction) =>
     }
 
      // ตรวจสอบค่า role จาก currentUser
-     if (!req.currentUser.role) {
+     if (req.currentUser.role !== 'admin') {
         throw new NotAuthorizedError();
      }
 
