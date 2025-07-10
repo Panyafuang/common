@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 interface IUserPayload {
     id: string;
     email: string;
+    role: string;
 }
 /** Add property currentUser TO Request */
 declare global {
