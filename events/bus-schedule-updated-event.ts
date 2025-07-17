@@ -8,5 +8,6 @@ export interface IBusScheduleUpdatedEvent {
     departureTime: string;
     price: number;
     version: number;
+    isCancelled: boolean;
   };
 }
