@@ -5,7 +5,7 @@ export interface IBusScheduleUpdatedEvent {
   data: {
     id: string;
     routeId: string;
-    departureTime: Date;
+    departureTime: string;
     price: number;
     version: number;
   };
