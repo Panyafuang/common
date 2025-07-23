@@ -1,6 +1,5 @@
 import { Subjects } from "./subjects";
 
-
 /**
  * Interface สำหรับ Event "ประกาศ" การอัปเดตข้อมูลเที่ยวรถ
  * ที่ Bus Service ส่งออกไปให้ Service อื่นๆ ที่สนใจ
