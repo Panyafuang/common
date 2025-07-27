@@ -1,4 +1,4 @@
-import { Message, Stan } from "node-nats-streaming";
+import { Message, Stan, Subscription } from "node-nats-streaming";
 import { Subjects } from "./subjects";
 
 
@@ -14,6 +14,11 @@ export abstract class Listener<T extends IEvent> {
   protected client: Stan;
   protected ackWait = 5 * 1000;
 
+  // --- 1. เพิ่ม Property นี้เข้ามา ---
+  // ประกาศ property 'subscription' เพื่อเก็บ object ของ NATS subscription
+  // ใช้ '!' (Non-null Assertion Operator) เพื่อบอก TypeScript ว่าเราจะกำหนดค่าให้มันแน่นอน (ใน listen())
+  protected subscription!: Subscription;
+
   constructor(client: Stan) {
     this.client = client;
   }
@@ -28,13 +33,13 @@ export abstract class Listener<T extends IEvent> {
   }
 
   listen() {
-    const subscription = this.client.subscribe(
+    this.subscription = this.client.subscribe(
       this.subject,
       this.queueGroupName,
       this.subscriptionOptions()
     );
 
-    subscription.on("message", (msg: Message) => {
+    this.subscription.on("message", (msg: Message) => {
       console.log(`Message received: ${this.subject} / ${this.queueGroupName}`);
 
       const parsedData = this.parseMessage(msg);
