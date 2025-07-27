@@ -13,5 +13,6 @@ export interface IBusScheduleUpdatedEvent {
     price: number;
     availableSeats: number; // จำนวนที่นั่งว่างล่าสุด
     version: number;
+    isCancelled: boolean;
   };
 }
