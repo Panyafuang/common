@@ -20,9 +20,11 @@ export * from './events/types/order-status';
 export * from './events/order-created-event';
 export * from './events/order-cancelled-event';
 export * from './events/expiration-complete-event';
-export * from './events/payment-created-event';
 export * from './events/bus-schedule-created-event';
 export * from './events/bus-schedule-updated-event';
 
 export * from './events/bus-reservation-request-event';
 export * from './events/bus-reservation-complete-event';
+
+export * from './events/payment-created-event';
+export * from './events/payment-succeeded-event';

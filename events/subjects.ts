@@ -23,5 +23,7 @@ export enum Subjects {
     /**
    * Event ที่ Bus Service ส่งกลับมาเพื่อ "ตอบ" คำร้องขอจองที่นั่ง
    */
-    BusReservationComplete = 'bus:reservation:complete'
+    BusReservationComplete = 'bus:reservation:complete',
+
+    PaymentSucceeded = 'payment:succeeded',
 }
