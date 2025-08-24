@@ -10,6 +10,7 @@ export interface IScheduleSnapshot {
     origin: string;
     destination: string;
     departureTime: Date;
+    arrivalDateTime: Date;
     price: number;
     version: number;
 }
