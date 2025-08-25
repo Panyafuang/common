@@ -10,7 +10,7 @@ export interface IBusScheduleUpdatedEvent {
     id: string; // ID ของ Schedule ที่ถูกอัปเดต
     routeId: string;
     departureTime: string;
-    arrivalDateTime: string;
+    arrivalTime: string;
     price: number;
     availableSeats: number; // จำนวนที่นั่งว่างล่าสุด
     version: number;
