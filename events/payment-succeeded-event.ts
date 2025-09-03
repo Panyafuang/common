@@ -8,10 +8,10 @@ export interface IPaymentSucceededEvent {
         userId: string;
         amount: number;        // satang (เช่น 49900 = ฿499.00)
         currency: string;      // 'thb' 
-        method: 'card' | 'promptpay';
-        providerPaymentId: string; // Stripe paymentIntent id
+        method?: 'card' | 'promptpay'; // วิธีชำระ (ทำ optional เพราะ orders ไม่รู้ method)
+        providerPaymentId: string; // Stripe payment_intent id (จาก payment:created.stripeId)
         paidAt: string;        // ISO date
-        email: string;         // อีเมลผู้ซื้อ (ใช้ส่งใบเสร็จ)
+        email?: string;         // อีเมลผู้ซื้อ (ใช้ส่งใบเสร็จ) ข้อมูลผู้ติดต่อ (ทำ optional เผื่อบาง flow ไม่มี)
 
         // Snapshot สำหรับแสดงในใบเสร็จ
         tickets?: Array<{
